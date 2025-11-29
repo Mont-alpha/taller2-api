@@ -38,9 +38,9 @@ function FilmsTableContainer() {
                 onChange={(e) => setActor(e.value)}
                 options={dataActors}
                 optionLabel="name" 
-                placeholder="Seleccione un actor" 
+                placeholder="Seleccione un personaje" 
                 showClear
-                className="mr-2"
+                className="mr-2 mt-4"
             />
             <Button  label="Filtrar" onClick={handleFilter} />
         </div>
