@@ -42,9 +42,9 @@ function FilmsTableContainer() {
                 showClear
                 className="mr-2"
             />
-            <Button label="Filtrar" onClick={handleFilter} />
+            <Button  label="Filtrar" onClick={handleFilter} />
         </div>
-      <FilmsTable />
+      <FilmsTable films={dataFilms} personajes={dataActors} />
     </div>
   )
 }
