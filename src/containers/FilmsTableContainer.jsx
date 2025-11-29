@@ -5,12 +5,14 @@ import { Button } from 'primereact/button';
 import { DataContext } from '../providers/context';
 
 function FilmsTableContainer() {
-    const { obtenerPeliculasPorActor,obtenerPeliculas,obtenerActores,dataFilms, dataActors } = useContext(DataContext);
+    const { obtenerPeliculasPorActor,obtenerPeliculas,obtenerActores,dataFilms, dataActors, obtenerNaves, obtenerPlanetas, dataNaves, dataPlanetas } = useContext(DataContext);
     const [actor, setActor] = useState(null);
 
     useEffect(() => {
         obtenerPeliculas();
         obtenerActores();
+        obtenerNaves();
+        obtenerPlanetas();
         console.log(dataFilms);
         
     }, []);
@@ -19,10 +21,8 @@ function FilmsTableContainer() {
         if (actor) {
             // separo la url del actor
             const urlDesacoplado = actor.url.split('/');
-            console.log(urlDesacoplado);
             // obtengo el id de la url
             const id = urlDesacoplado[urlDesacoplado.length - 2];
-            console.log(id);
             obtenerPeliculasPorActor(id);
             console.log(dataFilms);
         } else {
@@ -44,7 +44,7 @@ function FilmsTableContainer() {
             />
             <Button  label="Filtrar" onClick={handleFilter} />
         </div>
-      <FilmsTable films={dataFilms} personajes={dataActors} />
+      <FilmsTable films={dataFilms} personajes={dataActors} naves={dataNaves} planetas={dataPlanetas} />
     </div>
   )
 }

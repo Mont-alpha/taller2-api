@@ -18,7 +18,26 @@ export const obtenerActores = async () => {
         const response = await axios.get(API_URL+'people/');
         return response.data;
     } catch (error) {
-        console.error('Error al consultar los personajes de la pelicula:', error);
+        console.error('Error al consultar los personajes de la saga:', error);
+        throw error;
+    }
+};
+
+export const obtenerNaves = async () => {
+    try {
+        const response = await axios.get(API_URL+'starships/');
+        return response.data;
+    } catch (error) {
+        console.error('Error al consultar las naves de la saga:', error);
+        throw error;
+    }
+};
+export const obtenerPlanetas = async () => {
+    try {
+        const response = await axios.get(API_URL+'planets/');
+        return response.data;
+    } catch (error) {
+        console.error('Error al consultar los planetas de la saga:', error);
         throw error;
     }
 };
