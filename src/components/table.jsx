@@ -2,10 +2,11 @@ import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { Tag } from 'primereact/tag';
 
-function FilmsTable({ films,personajes, naves, planetas }) {
+function FilmsTable({ films,personajes, naves, planetas, loading }) {
     const tagStyle = { marginRight: '5px', marginBottom: '5px' };
     //funcion general para obtener el nombre del personaje/nave/planeta a partir de la url
     const obtenerNombre = (url,listaUsada,tipo) => {
+        console.log(url, listaUsada, tipo);
         // obtengo el id de uno de los personajes de la pelicula
         const obtenerID = (url) => {
             const urlDesacoplado = url.split('/');
@@ -61,13 +62,13 @@ function FilmsTable({ films,personajes, naves, planetas }) {
             </div>
         );
     }
-    
+    //loading -> espera a que se carguen los datos
     return ( 
         <div>
             <div className="card mt-2">
-                <DataTable value={films} tableStyle={{ minWidth: '50rem' }}>
+                <DataTable value={films} loading={loading} tableStyle={{ minWidth: '50rem' }}>
                     <Column field="title" header="Title"></Column>
-                    <Column field="episode_id" header="Episodio"></Column>
+                    <Column field="episode_id" sortable  header="Episodio"></Column>
                     <Column field="release_date" header="Fecha de lanzamiento"></Column>
                     <Column field="director" header="Director"></Column>
                     <Column field="producer" header="Productor"></Column>

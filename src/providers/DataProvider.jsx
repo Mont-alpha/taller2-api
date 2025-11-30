@@ -23,23 +23,24 @@ function DataProvider({ children }) {
   }
   const obtenerPeliculas = async () => {
     const peliculas = await getPeliculasService();
-    setDataFilms(peliculas.results);
+    setDataFilms(peliculas);
   }
 
+  //cambiar este metodo para que devuelva los directores, ya que devuelve a los personajes (character == personaje), no hay para actores/actrices
   const obtenerActores = async () => {
     const actores = await getActoresService();
-    setDataActors(actores.results);
+    setDataActors(actores);
     return actores;
   }
 
   const obtenerNaves = async () => {
     const naves = await obtenerNavesService();
-    setDataNaves(naves.results);
+    setDataNaves(naves);
   }
 
   const obtenerPlanetas = async () => {
     const planetas = await obtenerPlanetasService();
-    setDataPlanetas(planetas.results);
+    setDataPlanetas(planetas);
   }
 
   return (
